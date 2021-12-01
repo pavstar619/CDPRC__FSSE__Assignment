@@ -1,0 +1,17 @@
+select name as 'Name',
+CASE
+	WHEN score between 0 and 30 THEN '1'
+    WHEN score between 31 and 45 THEN '2'
+    WHEN score between 46 and 65 THEN '3'
+    WHEN score between 66 and 85 THEN '4'
+    WHEN score between 86 and 100 THEN '5'
+END AS Category,
+CASE
+	WHEN score between 0 and 30 THEN 'Failed'
+    WHEN score between 31 and 45 THEN 'Failed'
+    WHEN score between 46 and 65 THEN 'Passed'
+    WHEN score between 66 and 85 THEN 'Passed'
+    WHEN score between 86 and 100 THEN 'Passed'
+END AS Result
+from students
+order by Category desc;
